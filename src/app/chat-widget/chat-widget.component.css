@@ -1,0 +1,9 @@
+.chat-widget {
+  z-index: 50;
+}
+
+.chat-window {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform: translateY(100%);
+  opacity: 0;
+}
