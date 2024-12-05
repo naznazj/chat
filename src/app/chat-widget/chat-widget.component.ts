@@ -54,4 +54,5 @@ export class ChatWidgetComponent {
         this.messagesContainer.nativeElement.scrollHeight;
     }
   }
+  
 }
