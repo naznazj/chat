@@ -45,10 +45,14 @@
                   "maximumError": "4kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "none"
             },
             "development": {
-              "optimization": false,
+              "optimization": {
+  "scripts": true,
+  "styles": true,
+  "fonts": true
+},
               "extractLicenses": false,
               "sourceMap": true
             }
