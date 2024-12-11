@@ -22,28 +22,40 @@
       <button (click)="closeChat()">&#x2715;</button>
     </div>
     <div
-      #messages
-      class="chat-messages flex-1 overflow-y-auto p-4 space-y-2"
+    #messages
+    class="chat-messages flex-1 overflow-y-auto p-4 space-y-2"
+  >
+    <div
+      *ngFor="let message of messagesList"
+      class="message"
+      [ngClass]="{
+        'text-right text-blue-600 w-full': message.sender === 'user',
+        'text-left text-white w-full': message.sender === 'bot'
+      }"
     >
-      <div
-        *ngFor="let message of messagesList"
-        class="message"
+      <div 
+        class="inline-block p-2 max-w-xs md:max-w-lg bg-slate-100 rounded-lg whitespace-pre-wrap break-words"
         [ngClass]="{
-          'text-right text-blue-600': message.sender === 'user',
-          'text-left text-gray-600': message.sender === 'bot'
+          'bg-slate-100': message.sender === 'user',
+          'bg-gray-500': message.sender === 'bot'
         }"
       >
-        {{ message.text }}
+        <p>{{ message.text }}</p>
       </div>
     </div>
+  </div>
+  
+  
     <div class="chat-input p-4">
-      <input
-        type="text"
-        [(ngModel)]="newMessage"
-        (keyup.enter)="sendMessage()"
-        placeholder="Type your message..."
-        class="w-full p-2 border rounded"
-      />
+      <textarea
+      [(ngModel)]="newMessage"
+      (keyup.enter)="sendMessage()"
+      placeholder="Type your message..."
+      class="w-full max-h-32 min-h-16 p-2 border rounded resize-none overflow-y-auto"
+      [style.height]="textareaHeight"
+      (input)="adjustHeight($event)"
+    ></textarea>
+    
     </div>
   </div>
 </div>
