@@ -13,7 +13,7 @@ export class ChatWidgetComponent implements OnInit {
   isChatOpen = false;
   newMessage = '';
   messagesList: { sender: 'user' | 'bot'; text: string }[] = [];
-  textareaHeight: string = '3rem';
+  textareaHeight: string = 'auto';
   
   
 
@@ -34,7 +34,7 @@ export class ChatWidgetComponent implements OnInit {
     const textarea = event.target;
     textarea.style.height = 'auto'; // Reset the height to calculate the new value
     const newHeight = Math.max(textarea.scrollHeight, 64); // Minimum height should be 64px (min-h-16)
-    this.textareaHeight = newHeight <= 96 ? `${newHeight}px` : '9rem'; // max-h-24 is 96px
+    this.textareaHeight = newHeight <= 128 ? `${newHeight}px` : '128px'; // max-h-24 is 96px
   }
 
   closeChat() {
