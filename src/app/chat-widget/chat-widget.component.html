@@ -1,11 +1,11 @@
 <div class="chat-widget">
   <!-- Chat Button -->
   <button title="chat"
-    class="fixed  bottom-4 right-4 bg-blue-600 text-white p-4 rounded-full shadow-lg"
+    class="fixed  bottom-4 right-4 bg-black text-white p-4 rounded-full shadow-lg"
     (click)="toggleChat()"
   >
   <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M17 3.33782C15.5291 2.48697 13.8214 2 12 2C6.47715 2 2 6.47715 2 12C2 13.5997 2.37562 15.1116 3.04346 16.4525C3.22094 16.8088 3.28001 17.2161 3.17712 17.6006L2.58151 19.8267C2.32295 20.793 3.20701 21.677 4.17335 21.4185L6.39939 20.8229C6.78393 20.72 7.19121 20.7791 7.54753 20.9565C8.88837 21.6244 10.4003 22 12 22C17.5228 22 22 17.5228 22 12C22 10.1786 21.513 8.47087 20.6622 7" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
+  <path d="M17 3.33782C15.5291 2.48697 13.8214 2 12 2C6.47715 2 2 6.47715 2 12C2 13.5997 2.37562 15.1116 3.04346 16.4525C3.22094 16.8088 3.28001 17.2161 3.17712 17.6006L2.58151 19.8267C2.32295 20.793 3.20701 21.677 4.17335 21.4185L6.39939 20.8229C6.78393 20.72 7.19121 20.7791 7.54753 20.9565C8.88837 21.6244 10.4003 22 12 22C17.5228 22 22 17.5228 22 12C22 10.1786 21.513 8.47087 20.6622 7" stroke="Yellow" stroke-width="1.5" stroke-linecap="round"/>
   </svg>
   </button>
 
@@ -17,18 +17,18 @@
       'translate-y-0 opacity-100': isChatOpen
     }"
   >
-  <div class="chat-header bg-blue-600 text-white p-4 flex justify-between items-center">
-    <h3 class="text-lg">Chat</h3>
+  <div class="chat-header bg-gray-800 text-white p-4 flex justify-between items-center">
+    <h3 class="text-lg text-yellow-300">Chat</h3>
     <button (click)="closeChat()">&#x2715;</button>
   </div>
   <div #messages class="chat-messages flex-1 overflow-y-auto p-4 space-y-2">
     <div *ngFor="let message of messagesList" class="message" [ngClass]="{
-      'text-right text-blue-600 w-full': message.sender === 'user',
-      'text-left text-white w-full': message.sender === 'bot'
+      'text-right text-yellow-400 w-full': message.sender === 'user',
+      'text-left text-gray-950 w-full': message.sender === 'bot'
     }">
-      <div class="inline-block p-2 max-w-xs md:max-w-lg bg-slate-100 rounded-lg whitespace-pre-wrap break-words overflow-x-hidden" [ngClass]="{
-        'bg-slate-100 clip-bottom-right': message.sender === 'user',
-        'bg-gray-500 clip-bottom-left': message.sender === 'bot'
+      <div class="inline-block p-2 max-w-xs md:max-w-lg bg-gray-300 rounded-lg whitespace-pre-wrap break-words overflow-x-hidden" [ngClass]="{
+        'bg-gray-950 clip-bottom-right': message.sender === 'user',
+        'bg-slate-100 clip-bottom-left': message.sender === 'bot'
       }">
         <p class="break-all">{{ message.text }}</p>
       </div>
@@ -47,7 +47,7 @@
       [style.height]="textareaHeight"
       (input)="adjustHeight($event)"
     ></textarea>
-    <button title="enter" (click)="sendMessage()" class="bg-blue-400 h-16 w-16 flex items-center justify-center rounded-md">
+    <button title="enter" (click)="sendMessage()" class="bg-gray-600 h-16 w-16 flex items-center justify-center rounded-md">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
         <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
       </svg>
