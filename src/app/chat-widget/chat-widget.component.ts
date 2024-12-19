@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Component, ElementRef, ViewChild, OnInit } from '@angular/core';
+import { HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-chat-widget',
@@ -40,6 +41,17 @@ export class ChatWidgetComponent implements OnInit {
   closeChat() {
     this.isChatOpen = false;
   }
+  stopEventPropagation(event: MouseEvent) {
+    event.stopPropagation();  // Prevent the click from bubbling up to the overlay
+  }
+  @HostListener('document:keydown', ['$event'])
+handleKeyboardEvent(event: KeyboardEvent) {
+  if (event.key === 'Escape') {
+    this.closeChat();  // Close the modal when 'Esc' is pressed
+  }
+}
+
+  
 
   sendMessage() {
     if (this.newMessage.trim()) {
