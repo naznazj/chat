@@ -29,7 +29,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["src/assets/chat-widget-loader.js"]
           },
           "configurations": {
             "production": {
@@ -91,7 +91,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": ["src/assets/chat-widget.loader.js"]
           }
         }
       }
@@ -103,7 +103,7 @@
       "prefix": "lib",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "builder": "@angular-devkit/build-angular:ng-package",
           "options": {
             "project": "projects/chat-widget/ng-package.json"
           },

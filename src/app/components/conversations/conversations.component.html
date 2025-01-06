@@ -1,387 +1,87 @@
+<div class="flex bg-slate-900 min-h-screen">
+  <app-sidebar></app-sidebar>
 
-    <div
-      class="main-container w-[713px] h-[399px] bg-[rgba(0,0,0,0)] relative overflow-hidden mx-auto my-0"
-    >
-      <div class="h-[399px] bg-[rgba(0,0,0,0)] absolute top-0 left-0 right-0">
-        <div
-          class="w-[548px] h-[388px] bg-[rgba(0,0,0,0)] absolute bottom-[9px] right-[11px] z-[2]"
-        >
-          <div
-            class="w-[226px] h-[387px] bg-cover bg-no-repeat absolute bottom-px right-[315px] z-[44]"
-          >
-            <div
-              class="w-[10px] h-[10px] bg-cover bg-no-repeat relative z-[77] mt-[30px] mr-0 mb-0 ml-[22px]"
-            ></div>
-            <span
-              class="block h-[17px] font-['Inter'] text-[14.100000381469727px] font-semibold leading-[17px] text-[#5d5c5b] relative text-left whitespace-nowrap z-[76] mt-[31px] mr-0 mb-0 ml-[21px]"
-              >Conversations</span
-            >
-            <div
-              class="w-[188px] h-[2px] bg-cover bg-no-repeat relative z-[75] mt-[13px] mr-0 mb-0 ml-[19px]"
-            ></div>
+  <div>Assigned Chat/ Unassigned Chat/ Live Chat</div>
+
+  <div class="flex h-[95vh] w-[calc(100%-220px)] bg-slate-900 my-auto mx-auto p-4">
+    <!-- Conversations Sidebar -->
+    <div class="w-64 bg-black p-4 rounded-lg shadow-lg space-y-4">
+      <h3 class="text-white font-semibold bg-yellow-400 rounded-lg flex justify-center text-lg mb-4">Conversations</h3>
+      <ul class="space-y-3">
+        <!-- Hardcoded Conversations List -->
+        <li class="cursor-pointer p-3 hover:bg-gray-700 rounded-lg transition duration-200 ease-in-out">
+          <div class="flex justify-between items-center">
+            <span class="text-white font-semibold">John Doe</span>
+            <span class="text-sm text-gray-400">5 minutes ago</span>
           </div>
-          <div
-            class="w-[307px] h-[382px] bg-cover bg-no-repeat absolute bottom-[3px] right-0 z-[4]"
-          >
-            <div
-              class="w-[6px] h-[6px] bg-cover bg-no-repeat relative z-[43] mt-[31px] mr-0 mb-0 ml-[269px]"
-            ></div>
-            <div
-              class="w-[248px] h-[24px] relative z-[42] mt-[22px] mr-0 mb-0 ml-[28px]"
-            >
-              <div
-                class="w-[25px] h-[24px] bg-cover bg-no-repeat absolute bottom-0 right-[223px] z-[42]"
-              ></div>
-              <span
-                class="flex h-[12px] justify-start items-center font-['Inter'] text-[9px] font-semibold leading-[10.892px] text-[#b3b2b0] absolute bottom-[12px] right-[159px] text-left whitespace-nowrap z-[41]"
-                >Abigail Blake</span
-              >
-              <div
-                class="w-[8px] h-[8px] bg-cover bg-no-repeat absolute bottom-[13px] right-0 z-40"
-              ></div>
-              <span
-                class="flex w-[20px] h-[8px] justify-center items-center font-['Inter'] text-[6px] font-semibold leading-[7.261px] text-[#4b4b4a] absolute bottom-[3px] right-[198px] text-center whitespace-nowrap z-[39]"
-                >Online</span
-              >
-            </div>
-            <div
-              class="w-[251px] h-[4px] bg-cover bg-no-repeat relative z-[38] mt-[13px] mr-0 mb-0 ml-[27px]"
-            ></div>
-            <div
-              class="w-[79px] h-[22px] bg-[rgba(0,0,0,0)] relative z-[34] mt-0 mr-0 mb-0 ml-[201px]"
-            >
-              <button
-                class="w-[76px] h-[20px] bg-[#69976b] rounded-tl-[9.25px] rounded-tr-[9.5px] rounded-br-none rounded-bl-[9px] border-solid border border-[#49604a] relative z-[35] pointer mt-px mr-0 mb-0 ml-[2px]"
-              >
-                <span
-                  class="flex h-[11px] justify-start items-center font-['Inter'] text-[6.199999809265137px] font-semibold leading-[7.503px] text-[#a3bea2] absolute bottom-[4px] right-[18px] text-left whitespace-nowrap z-[37]"
-                  >Bye Bye 11:43</span
-                >
-                <div
-                  class="w-[6px] h-[4px] bg-cover bg-no-repeat absolute bottom-[7px] right-[10px] z-[36]"
-                ></div>
-              </button>
-            </div>
-            <div
-              class="flex w-[251px] h-[10px] justify-between items-center relative z-[33] mt-[18px] mr-0 mb-0 ml-[28px]"
-            >
-              <div
-                class="w-[89px] h-[4px] shrink-0 bg-cover bg-no-repeat relative z-[33]"
-              ></div>
-              <span
-                class="flex w-[54px] h-[10px] justify-start items-center shrink-0 font-['Inter'] text-[5.400000095367432px] font-semibold leading-[10px] text-[#4e4e4d] relative text-left z-[32]"
-                >Yesterday,23 Dec</span
-              >
-              <div
-                class="w-[89px] h-[4px] shrink-0 bg-cover bg-no-repeat relative z-[31]"
-              ></div>
-            </div>
-            <div
-              class="flex w-[147px] h-[25px] justify-between items-center relative z-30 mt-[18px] mr-0 mb-0 ml-[28px]"
-            >
-              <div
-                class="w-[25px] h-[24px] shrink-0 bg-cover bg-no-repeat relative z-30"
-              ></div>
-              <button
-                class="w-[117px] h-[23px] shrink-0 bg-[rgba(0,0,0,0)] border-none relative z-[26] pointer"
-              >
-                <div
-                  class="w-[115px] h-[21px] bg-[#363636] rounded-tl-none rounded-tr-[9px] rounded-br-[8.75px] rounded-bl-none border-solid border border-[#2d2d2d] relative z-[27] mt-[2px] mr-0 mb-0 ml-[2px]"
-                >
-                  <span
-                    class="flex w-[73px] h-[11px] justify-start items-center font-['Inter'] text-[5.699999809265137px] font-semibold leading-[6.898px] text-[#888886] absolute bottom-[5px] right-[30px] text-left z-[29]"
-                    >Hey Jessica, what's up?</span
-                  ><span
-                    class="flex w-[16px] h-[9px] justify-center items-center font-['Inter'] text-[5px] font-semibold leading-[6.051px] text-[#525251] absolute bottom-[6px] right-[10px] text-center whitespace-nowrap z-[28]"
-                    >16:04</span
-                  >
-                </div>
-              </button>
-            </div>
-            <div
-              class="w-[130px] h-[23px] bg-[rgba(0,0,0,0)] relative z-[23] mt-[12px] mr-0 mb-0 ml-[150px]"
-            >
-              <button
-                class="w-[127px] h-[20px] bg-[#69976b] rounded-tl-[8.75px] rounded-tr-[9.5px] rounded-br-none rounded-bl-[9px] border-solid border border-[#4a624c] relative z-[24] pointer mt-[2px] mr-0 mb-0 ml-[2px]"
-              >
-                <span
-                  class="flex h-[11px] justify-start items-center font-['Inter'] text-[6.599999904632568px] font-semibold leading-[7.987px] text-[#a6c0a5] absolute bottom-[5px] right-[9px] text-left whitespace-nowrap z-[25]"
-                  >Hello Abigail, fine and u? 11:43</span
-                >
-              </button>
-            </div>
-            <div
-              class="w-[270px] h-[55px] relative z-[22] mt-[10px] mr-0 mb-0 ml-[28px]"
-            >
-              <div
-                class="w-[179px] h-[39px] bg-[rgba(0,0,0,0)] absolute bottom-[16px] right-[63px] z-[18]"
-              >
-                <div
-                  class="w-[171px] h-[31px] text-[0px] bg-[#363636] rounded-tl-[7px] rounded-tr-[10px] rounded-br-[15px] rounded-bl-none relative overflow-hidden z-[19] mt-[6px] mr-0 mb-0 ml-[4px]"
-                >
-                  <span
-                    class="flex w-[151px] h-[12px] justify-start items-center font-['Inter'] text-[6.199999809265137px] font-semibold leading-[7.503px] text-[#898987] relative text-left z-[21] mt-[3px] mr-0 mb-0 ml-[11px]"
-                    >I have sent an email to you about possible project</span
-                  ><span
-                    class="flex w-[16px] h-[9px] justify-center items-center font-['Inter'] text-[5.5px] font-semibold leading-[6.656px] text-[#535352] relative text-center whitespace-nowrap z-20 mt-0 mr-0 mb-0 ml-[12px]"
-                    >17:24</span
-                  >
-                </div>
-              </div>
-              <div
-                class="w-[2px] h-[49px] bg-cover bg-no-repeat absolute bottom-0 right-0 z-[16]"
-              ></div>
-              <div
-                class="w-[25px] h-[23px] bg-cover bg-no-repeat absolute bottom-[24px] right-[245px] z-[22]"
-              ></div>
-              <div
-                class="w-[13px] h-[2px] bg-cover bg-no-repeat absolute bottom-px right-[224px] z-[17]"
-              ></div>
-            </div>
-            <div
-              class="w-[251px] h-[3px] bg-cover bg-no-repeat relative z-[15] mt-[21px] mr-0 mb-0 ml-[29px]"
-            ></div>
-            <span
-              class="flex w-[49px] h-[10px] justify-start items-center font-['Inter'] text-[4.800000190734863px] font-semibold leading-[5.809px] text-[#4b4b4a] relative text-left z-[14] mt-[11px] mr-0 mb-0 ml-[29px]"
-              >Type something</span
-            >
-            <div
-              class="w-[248px] h-[23px] relative z-[13] mt-[9px] mr-0 mb-0 ml-[31px]"
-            >
-              <button
-                class="w-[52px] h-[23px] bg-[rgba(0,0,0,0)] border-none absolute bottom-0 right-0 z-[5] pointer"
-              >
-                <div
-                  class="w-[51px] h-[20px] bg-[#69976b] border-solid border border-[#4d674e] relative z-[6] mt-[2px] mr-0 mb-0 ml-px"
-                >
-                  <span
-                    class="flex w-[18px] h-[10px] justify-center items-center font-['Inter'] text-[6.400000095367432px] font-semibold leading-[7.745px] text-[#a7c0a6] absolute bottom-[5px] right-[9px] text-center whitespace-nowrap z-[7]"
-                    >Send</span
-                  >
-                  <div
-                    class="w-[7px] h-[8px] bg-cover bg-no-repeat absolute bottom-[5px] right-[32px] z-[8]"
-                  ></div>
-                </div>
-              </button>
-              <div
-                class="w-[9px] h-[12px] bg-cover bg-no-repeat absolute bottom-[6px] right-[201px] z-[11]"
-              ></div>
-              <div
-                class="w-[8px] h-[9px] bg-cover bg-no-repeat absolute bottom-[7px] right-[240px] z-[13]"
-              ></div>
-              <div
-                class="w-[8px] h-[9px] bg-cover bg-no-repeat absolute bottom-[7px] right-[220px] z-[12]"
-              ></div>
-              <div
-                class="w-[7px] h-[9px] bg-cover bg-no-repeat absolute bottom-[7px] right-[183px] z-10"
-              ></div>
-              <div
-                class="w-[8px] h-[9px] bg-cover bg-no-repeat absolute bottom-[7px] right-[163px] z-[9]"
-              ></div>
-            </div>
+          <p class="text-sm text-gray-300 truncate">Hey, are you free to talk?</p>
+        </li>
+  
+        <li class="cursor-pointer p-3 hover:bg-gray-700 rounded-lg transition duration-200 ease-in-out">
+          <div class="flex justify-between items-center">
+            <span class="text-white font-semibold">Jane Smith</span>
+            <span class="text-sm text-gray-400">2 hours ago</span>
           </div>
-          <div
-            class="w-[236px] h-[284px] bg-[rgba(0,0,0,0)] absolute bottom-[-1px] right-[308px] z-[45]"
-          >
-            <div
-              class="w-[218px] h-[79px] text-[0px] bg-[rgba(0,0,0,0)] relative z-[68] mt-[7px] mr-0 mb-0 ml-[8px]"
-            >
-              <span
-                class="block h-[10px] font-['Inter'] text-[6.400000095367432px] font-semibold leading-[7.745px] text-[#a8a7a4] relative text-left whitespace-nowrap z-[74] mt-[11px] mr-0 mb-0 ml-[16px]"
-                >Favorite</span
-              >
-              <div
-                class="w-[199px] h-[55px] bg-[#f6f5f0] relative z-[69] mt-[4px] mr-0 mb-0 ml-[8px]"
-              >
-                <div
-                  class="flex w-[156px] h-[10px] justify-between items-center relative z-[72] mt-[9px] mr-0 mb-0 ml-[38px]"
-                >
-                  <span
-                    class="h-[10px] shrink-0 font-['Inter'] text-[6.400000095367432px] font-semibold leading-[10px] text-[#7f7f7e] relative text-left whitespace-nowrap z-[72]"
-                    >Chester Parker</span
-                  ><span
-                    class="flex w-[15px] h-[9px] justify-center items-center shrink-0 font-['Inter'] text-[6px] font-semibold leading-[9px] text-[#bfbebb] relative text-center whitespace-nowrap z-[71]"
-                    >24m</span
-                  >
-                </div>
-                <div
-                  class="w-[22px] h-[19px] bg-cover bg-no-repeat relative z-[73] mt-[-9px] mr-0 mb-0 ml-[8px]"
-                ></div>
-                <span
-                  class="flex w-[118px] h-[19px] justify-start items-center font-['Inter'] text-[5.5px] font-semibold leading-[8.625px] text-[#c6c6c2] relative text-left overflow-hidden z-[70] mt-[-6px] mr-0 mb-0 ml-[38px]"
-                  >Hello Lars. I've dropped the scheduler tick<br />duration down
-                  to 2ms</span
-                >
-              </div>
-            </div>
-            <div
-              class="w-[225px] h-[55px] bg-[rgba(0,0,0,0)] relative z-[61] mt-[2px] mr-0 mb-0 ml-[5px]"
-            >
-              <div
-                class="w-[185px] h-[2px] bg-cover bg-no-repeat relative z-[67] mt-[-1px] mr-0 mb-0 ml-[19px]"
-              ></div>
-              <div
-                class="w-[191px] h-[46px] relative z-[63] mt-[4px] mr-0 mb-0 ml-[14px]"
-              >
-                <div
-                  class="w-[154px] h-[46px] bg-cover bg-no-repeat absolute bottom-0 right-[37px] z-[63]"
-                >
-                  <div
-                    class="w-[74px] h-[21px] relative z-[66] mt-[6px] mr-0 mb-0 ml-[5px]"
-                  >
-                    <div
-                      class="w-[24px] h-[21px] bg-cover bg-no-repeat absolute bottom-0 right-[50px] z-[66]"
-                    ></div>
-                    <span
-                      class="flex h-[11px] justify-start items-center font-['Inter'] text-[6.599999904632568px] font-semibold leading-[7.987px] text-[#ee9685] absolute bottom-[10px] right-0 text-left whitespace-nowrap z-[65]"
-                      >Abigail Blake</span
-                    >
-                  </div>
-                  <span
-                    class="flex w-[119px] h-[20px] justify-start items-center font-['Inter'] text-[5.699999809265137px] font-semibold leading-[8.775px] text-[#c3c2be] relative text-left overflow-hidden z-[64] mt-[-7px] mr-0 mb-0 ml-[35px]"
-                    >Ihave sent an email to you about possible<br />project</span
-                  >
-                </div>
-                <span
-                  class="flex w-[15px] h-[9px] justify-center items-center font-['Inter'] text-[5.900000095367432px] font-semibold leading-[7.14px] text-[#c3c3bf] absolute bottom-[30px] right-0 text-center whitespace-nowrap z-[62]"
-                  >38m</span
-                >
-              </div>
-            </div>
-            <div
-              class="w-[202px] h-[54px] text-[0px] bg-[#f6f5f0] relative z-[46] mt-[82px] mr-0 mb-0 ml-[14px]"
-            >
-              <span
-                class="block h-[10px] font-['Inter'] text-[6.400000095367432px] font-semibold leading-[7.745px] text-[#afafac] relative text-left whitespace-nowrap z-[52] mt-0 mr-0 mb-0 ml-[10px]"
-                >All contacts</span
-              >
-              <div
-                class="w-[185px] h-[20px] relative z-[51] mt-[13px] mr-0 mb-0 ml-[10px]"
-              >
-                <div
-                  class="w-[20px] h-[20px] bg-cover bg-no-repeat absolute bottom-0 right-[165px] z-[51]"
-                ></div>
-                <span
-                  class="flex h-[10px] justify-start items-center font-['Inter'] text-[6.400000095367432px] font-semibold leading-[7.745px] text-[#858585] absolute bottom-[10px] right-[102px] text-left whitespace-nowrap z-50"
-                  >Steven Sanders</span
-                >
-                <div
-                  class="w-[7px] h-[5px] bg-cover bg-no-repeat absolute bottom-[11px] right-0 z-[49]"
-                ></div>
-              </div>
-              <span
-                class="flex w-[17px] h-[9px] justify-center items-center font-['Inter'] text-[5.900000095367432px] font-semibold leading-[7.14px] text-[#cbcac7] relative text-center whitespace-nowrap z-[48] mt-[-5px] mr-0 mb-0 ml-[40px]"
-                >Sure!</span
-              ><span
-                class="block h-[7px] font-['Inter'] text-[4.800000190734863px] font-light leading-[5.809px] text-[#c5c4c1] relative text-left whitespace-nowrap z-[47] mt-px mr-0 mb-0 ml-[40px]"
-                >Pfease give me the proiect details soon.</span
-              >
-            </div>
-            <div
-              class="w-[225px] h-[56px] bg-[rgba(0,0,0,0)] absolute bottom-[84px] right-[4px] z-[55]"
-            ></div>
-            <div
-              class="w-[197px] h-[61px] bg-[#f6f5f0] absolute bottom-[77px] right-[22px] z-[53]"
-            >
-              <div
-                class="w-[186px] h-[4px] bg-cover bg-no-repeat relative z-[60] mt-[-1px] mr-0 mb-0 ml-[7px]"
-              ></div>
-              <div
-                class="w-[186px] h-[21px] relative z-[59] mt-[7px] mr-0 mb-0 ml-[7px]"
-              >
-                <div
-                  class="w-[20px] h-[21px] bg-cover bg-no-repeat absolute bottom-0 right-[166px] z-[59]"
-                ></div>
-                <span
-                  class="flex h-[11px] justify-start items-center font-['Inter'] text-[6.599999904632568px] font-semibold leading-[7.987px] text-[#8c8c8b] absolute bottom-[10px] right-[34px] text-left whitespace-nowrap z-[58]"
-                  >Mark Chandler,Erica foster & 3 more</span
-                ><span
-                  class="flex w-[8px] h-[9px] justify-center items-center font-['Inter'] text-[5.900000095367432px] font-semibold leading-[7.14px] text-[#c4c4c0] absolute bottom-[11px] right-0 text-center whitespace-nowrap z-[57]"
-                  >1h</span
-                >
-              </div>
-              <span
-                class="flex w-[129px] h-[20px] justify-start items-center font-['Inter'] text-[5.5px] font-semibold leading-[8.625px] text-[#aeaeab] relative text-left overflow-hidden z-[56] mt-[-7px] mr-0 mb-0 ml-[37px]"
-                >lars Jundberg Please let me know wher you<br />Nave done the
-                task</span
-              >
-              <div
-                class="w-[184px] h-[2px] bg-cover bg-no-repeat relative z-[54] mt-[12px] mr-0 mb-0 ml-[9px]"
-              ></div>
-            </div>
+          <p class="text-sm text-gray-300 truncate">Can you send me the report?</p>
+        </li>
+  
+        <li class="cursor-pointer p-3 hover:bg-gray-700 rounded-lg transition duration-200 ease-in-out">
+          <div class="flex justify-between items-center">
+            <span class="text-white font-semibold">Mike Johnson</span>
+            <span class="text-sm text-gray-400">Yesterday</span>
           </div>
-        </div>
-        <div
-          class="w-[309px] h-[386px] bg-[rgba(0,0,0,0)] absolute bottom-[10px] right-[7px] z-[3]"
-        ></div>
-        <div
-          class="w-[142px] h-[387px] bg-cover bg-no-repeat absolute bottom-[9px] right-[560px] z-[79]"
-        >
-          <div
-            class="w-[138px] h-[381px] bg-[rgba(0,0,0,0)] relative z-[78] mt-[3px] mr-0 mb-0 ml-[3px]"
-          >
-            <div
-              class="w-[12px] h-[336px] absolute bottom-[21px] right-[107px] z-[94]"
-            >
-              <div
-                class="w-[12px] h-[12px] bg-cover bg-no-repeat relative z-[94] mt-0 mr-0 mb-0 ml-0"
-              ></div>
-              <div
-                class="w-[11px] h-[10px] bg-cover bg-no-repeat relative z-[92] mt-[39px] mr-0 mb-0 ml-0"
-              ></div>
-              <div
-                class="w-[10px] h-[10px] bg-cover bg-no-repeat relative z-[90] mt-[17px] mr-0 mb-0 ml-0"
-              ></div>
-              <div
-                class="w-[11px] h-[10px] bg-cover bg-no-repeat relative z-[88] mt-[16px] mr-0 mb-0 ml-0"
-              ></div>
-              <div
-                class="w-[10px] h-[9px] bg-cover bg-no-repeat relative z-[86] mt-[18px] mr-0 mb-0 ml-0"
-              ></div>
-              <div
-                class="w-[9px] h-[9px] bg-cover bg-no-repeat relative z-[84] mt-[17px] mr-0 mb-0 ml-px"
-              ></div>
-              <div
-                class="w-[10px] h-[9px] bg-cover bg-no-repeat relative z-[82] mt-[18px] mr-0 mb-0 ml-px"
-              ></div>
-              <div
-                class="w-[10px] h-[10px] bg-cover bg-no-repeat relative z-[80] mt-[132px] mr-0 mb-0 ml-0"
-              ></div>
+          <p class="text-sm text-gray-300 truncate">Let’s catch up tomorrow!</p>
+        </li>
+  
+        <li class="cursor-pointer p-3 hover:bg-gray-700 rounded-lg transition duration-200 ease-in-out">
+          <div class="flex justify-between items-center">
+            <span class="text-white font-semibold">Sarah Lee</span>
+            <span class="text-sm text-gray-400">1 day ago</span>
+          </div>
+          <p class="text-sm text-gray-300 truncate">Happy New Year!</p>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Chat Window -->
+    <div class="flex flex-col flex-1 h-full ml-2 bg-black p-4 rounded-lg shadow-lg">
+      
+      <!-- Chat Header -->
+      <div class="flex items-center justify-between p-3 text-white rounded-lg shadow-md">
+        <h2 class="font-semibold text-lg">Name</h2>
+      </div>
+
+      <!-- Message List -->
+      <div class="flex-1 overflow-y-auto p-4 space-y-4">
+        <div *ngFor="let message of messages" class="w-full">
+          <div class="flex gap-2" [ngClass]="message.type === 'sent' ? 'justify-end' : 'justify-start'">
+            <!-- Sent Messages (right side) -->
+            <div *ngIf="message.type === 'sent'" class="bg-yellow-400 text-white p-3 rounded-lg max-w-[75%] w-full shadow-md">
+              <p class="text-sm flex justify-between font-semibold"><span>{{ message.time }} </span><span>{{ message.sender }}</span></p>
+              <p class="flex justify-end">{{ message.message }}</p>
             </div>
-            <div
-              class="w-[3px] h-[4px] bg-cover bg-no-repeat absolute bottom-[349px] right-[22px] z-[93]"
-            ></div>
-            <div
-              class="w-[49px] h-[146px] text-[0px] absolute bottom-[162px] right-[50px] z-[91]"
-            >
-              <span
-                class="block h-[10px] font-['Inter'] text-[6.400000095367432px] font-semibold leading-[7.745px] text-[#aeaead] relative text-left whitespace-nowrap z-[91] mt-0 mr-0 mb-0 ml-0"
-                >Dashboard</span
-              ><span
-                class="flex w-[20px] h-[10px] justify-center items-center font-['Inter'] text-[6.400000095367432px] font-semibold leading-[7.745px] text-[#aeaead] relative text-center whitespace-nowrap z-[89] mt-[17px] mr-0 mb-0 ml-0"
-                >Deals</span
-              ><span
-                class="block h-[10px] font-['Inter'] text-[6.400000095367432px] font-semibold leading-[7.745px] text-[#b1b1b0] relative text-left whitespace-nowrap z-[87] mt-[17px] mr-0 mb-0 ml-0"
-                >Contacts</span
-              ><span
-                class="block h-[10px] font-['Inter'] text-[6.199999809265137px] font-semibold leading-[7.503px] text-[#f29b8c] relative text-left whitespace-nowrap z-[85] mt-[17px] mr-0 mb-0 ml-0"
-                >Conversations</span
-              ><span
-                class="flex w-[23px] h-[10px] justify-center items-center font-['Inter'] text-[6.800000190734863px] font-semibold leading-[8.23px] text-[#ababaa] relative text-center whitespace-nowrap z-[83] mt-[17px] mr-0 mb-0 ml-0"
-                >Billing</span
-              ><span
-                class="block h-[11px] font-['Inter'] text-[6.599999904632568px] font-semibold leading-[7.987px] text-[#adadac] relative text-left whitespace-nowrap z-[81] mt-[17px] mr-0 mb-0 ml-0"
-                >Settings</span
-              >
+
+            <!-- Received Messages (left side) -->
+            <div *ngIf="message.type === 'received'" class="bg-gray-300 text-black p-3 rounded-lg max-w-[75%] w-full shadow-md">
+              <p class="text-sm flex justify-between font-semibold"><span>{{ message.sender }} </span><span>{{ message.time }}</span></p>
+              <p>{{ message.message }}</p>
             </div>
           </div>
         </div>
       </div>
-      <div
-        class="w-[713px] h-[399px] bg-cover bg-no-repeat absolute bottom-0 right-0 z-[1]"
-      ></div>
+
+      <!-- Message Input Section -->
+      <div class="flex items-center gap-2 border-t pt-4">
+        <input
+          type="text"
+          [(ngModel)]="newMessage"
+          class="flex-1 p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-600"
+          placeholder="Type a message..."
+        />
+        <button (click)="sendMessage()" class="bg-yellow-400 text-white p-3 rounded-lg hover:bg-yellow-500 transition duration-200 ease-in-out">
+          Send
+        </button>
+      </div>
     </div>
-  
-  
-  
-  
+  </div>
+</div>
