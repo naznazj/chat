@@ -18,27 +18,31 @@ export class ConversationComponent implements OnInit {
   newMessage: string = '';
   selectedCategory: string = 'all';  // Default category
 
-  constructor(private chatService: ChatService, private route: ActivatedRoute) {}
+  constructor(private chatService: ChatService) {}
 
   ngOnInit(): void {
-    // Fetching messages by category (you could enhance this by using route params to change the category)
+    // Fetching messages based on the default category
+    this.fetchMessagesByCategory();
+  }
+
+  // Method to fetch messages for the selected category
+  fetchMessagesByCategory(): void {
     this.messages = this.chatService.getMessagesByType(this.selectedCategory);
   }
 
+  // Method to change the category
+  changeCategory(category: string): void {
+    this.selectedCategory = category;
+    this.fetchMessagesByCategory();
+  }
+
+  // Method to send a message
   sendMessage(): void {
     if (this.newMessage.trim()) {
-      const message = {
-        sender: 'You',
-        message: this.newMessage,
-        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        type: 'sent' as 'sent',  // Explicitly setting the type to 'sent'
-      };
-
-      // Add the new message to the messages in the chat service (e.g., 'all' category)
       this.chatService.sendMessage(this.newMessage, this.selectedCategory);
-      this.messages = this.chatService.getMessagesByType(this.selectedCategory);  // Refresh the displayed messages
-
+      this.fetchMessagesByCategory();  // Refresh the displayed messages
       this.newMessage = '';  // Clear the input field
     }
   }
 }
+

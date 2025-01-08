@@ -4,7 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ChatService {
-  // Define the structure for messages
   private messages: { [key: string]: { sender: string; message: string; time: string; type: 'sent' | 'received' }[] } = {
     all: [
       { sender: 'Mary Franci', message: 'Can I try the software first?', time: '10:00', type: 'received' },
@@ -25,17 +24,15 @@ export class ChatService {
       { sender: 'Hanna Lee', message: 'Can someone help with the onboarding process?', time: '11:00', type: 'received' },
       { sender: 'Anna Jackson', message: 'I’m facing an error with my login. Please assist!', time: '11:30', type: 'received' },
     ],
-    liveChat: [
-      { sender: 'Rhiel Madsen', message: 'Typing...', time: 'Just now', type: 'received' },
-      { sender: 'Sarah Conners', message: 'How can I use this feature?', time: '10:00', type: 'received' },
-      { sender: 'You', message: 'It’s simple. Just click on the settings button.', time: '10:02', type: 'sent' },
-      { sender: 'Tom Harris', message: 'Can I upgrade my plan directly?', time: '10:30', type: 'received' },
+    drafts: [
+      { sender: 'You', message: 'Draft message 1', time: '10:00', type: 'sent' },
+      { sender: 'You', message: 'Draft message 2', time: '10:30', type: 'sent' },
     ],
   };
 
   constructor() {}
 
-  // Get messages by type
+  // Get messages by category (type)
   getMessagesByType(type: string): { sender: string; message: string; time: string; type: 'sent' | 'received' }[] {
     return this.messages[type] || [];
   }
@@ -46,10 +43,10 @@ export class ChatService {
         sender: 'You',
         message: newMessage,
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
-        type: 'sent' as 'sent',  // Explicitly setting the type as 'sent'
+        type: 'sent' as 'sent', // Explicitly setting the type as 'sent'
       };
 
-      // Push the new message to the specified category (default is 'all')
+      // Push the new message to the specified category
       if (this.messages[category]) {
         this.messages[category].push(message);
       } else {
