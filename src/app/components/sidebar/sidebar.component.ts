@@ -27,6 +27,13 @@ import { OnInit } from '@angular/core';
         // Keep the sidebar state intact across route changes
       });
     }
+
+  logout(): void {
+    // Clear the login state from localStorage
+    localStorage.removeItem('isLoggedIn');
+    // Redirect to login page
+    this.router.navigate(['/login']);
+  }
   
     toggleSidebar(): void {
       this.isCollapsed = !this.isCollapsed;
