@@ -30,6 +30,7 @@ export class ConversationComponent implements OnInit {
       document.documentElement.style.setProperty('--primary-color', colors.primary);
       document.documentElement.style.setProperty('--secondary-color', colors.secondary);
       document.documentElement.style.setProperty('--accent-color', colors.accent);
+      document.documentElement.style.setProperty('--whites-color', colors.whites);
     }
   }
 
