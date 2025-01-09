@@ -23,7 +23,16 @@ export class ConversationComponent implements OnInit {
   ngOnInit(): void {
     // Fetching messages based on the default category
     this.fetchMessagesByCategory();
-  }
+    
+      const themeColors = localStorage.getItem('themeColors');
+      if (themeColors) {
+        const colors = JSON.parse(themeColors);
+        document.documentElement.style.setProperty('--primary-color', colors.primary);
+        document.documentElement.style.setProperty('--secondary-color', colors.secondary);
+        document.documentElement.style.setProperty('--accent-color', colors.accent);
+      }
+    }
+  
 
   // Method to fetch messages for the selected category
   fetchMessagesByCategory(): void {

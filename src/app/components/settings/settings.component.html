@@ -1,11 +1,11 @@
-<div class="flex bg-slate-950">
+<div class="flex bg-secondary">
     <app-sidebar></app-sidebar>
   
-    <div class="p-6 bg-slate-950 container mx-auto text-white h-screen overflow-y-auto">
+    <div class="p-6 bg-secondary container mx-auto text-white h-screen overflow-y-auto">
       <!-- Header -->
       <div class="flex justify-between items-center mb-6">
         <h1 class="text-2xl font-bold">Chat Settings</h1>
-        <button class="bg-yellow-500 text-white px-4 py-2 rounded-lg shadow hover:bg-yellow-600">
+        <button class="bg-accent text-white px-4 py-2 rounded-lg shadow">
           Save Settings
         </button>
       </div>
@@ -13,25 +13,25 @@
       <!-- Double Column Layout -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Column 1: General Settings -->
-        <div class="bg-black p-6 rounded-lg shadow">
-          <h2 class="text-lg font-semibold mb-4">General Settings</h2>
+        <div class="bg-secondary p-6 rounded-lg shadow-2xl">
+          <h2 class="text-lg font-semibold text-primary mb-4">General Settings</h2>
           <!-- Notifications -->
           <div class="mb-6">
-            <label for="notifications" class="block text-sm text-gray-400 mb-2">Enable Notifications</label>
+            <label for="notifications" class="block text-sm text-primary mb-2">Enable Notifications</label>
             <div class="flex items-center">
               <input
                 id="notifications"
                 type="checkbox"
-                class="w-5 h-5 text-yellow-500 bg-slate-800 rounded focus:ring-yellow-500 focus:ring-2"
+                class="w-5 h-5 text-primary bg-accent rounded focus:ring-2"
                 checked
               />
-              <label for="notifications" class="ml-3 text-gray-300">Turn on to receive alerts for new messages</label>
+              <label for="notifications" class="ml-3 text-primary">Turn on to receive alerts for new messages</label>
             </div>
           </div>
           <!-- Default Font Size -->
           <div class="mb-6">
-            <label for="font-size" class="block text-sm text-gray-400 mb-2">Font Size</label>
-            <select id="font-size" class="w-full p-3 rounded-lg bg-slate-800 text-white">
+            <label for="font-size" class="block text-sm text-primary mb-2">Font Size</label>
+            <select id="font-size" class="w-full p-3 rounded-lg bg-primary text-white">
               <option value="small">Small</option>
               <option value="medium" selected>Medium</option>
               <option value="large">Large</option>
@@ -39,8 +39,8 @@
           </div>
           <!-- Message Sound -->
           <div class="mb-6">
-            <label for="message-sound" class="block text-sm text-gray-400 mb-2">Message Sound</label>
-            <select id="message-sound" class="w-full p-3 rounded-lg bg-slate-800 text-white">
+            <label for="message-sound" class="block text-sm text-primary mb-2">Message Sound</label>
+            <select id="message-sound" class="w-full p-3 rounded-lg bg-primary text-white">
               <option value="ding">Ding</option>
               <option value="pop" selected>Pop</option>
               <option value="chime">Chime</option>
@@ -49,12 +49,12 @@
         </div>
   
         <!-- Column 2: Advanced Settings -->
-        <div class="bg-black p-6 rounded-lg shadow">
+        <div class="bg-secondary p-6 rounded-lg shadow-2xl">
           <h2 class="text-lg font-semibold mb-4">Advanced Settings</h2>
           <!-- Chat History -->
           <div class="mb-6">
-            <label for="chat-history" class="block text-sm text-gray-400 mb-2">Chat History Retention</label>
-            <select id="chat-history" class="w-full p-3 rounded-lg bg-slate-800 text-white">
+            <label for="chat-history" class="block text-sm text-primary mb-2">Chat History Retention</label>
+            <select id="chat-history" class="w-full p-3 rounded-lg bg-primary text-white">
               <option value="7-days">7 Days</option>
               <option value="30-days" selected>30 Days</option>
               <option value="forever">Forever</option>
@@ -62,7 +62,7 @@
           </div>
           <!-- Typing Indicator -->
           <div class="mb-6">
-            <label for="typing-indicator" class="block text-sm text-gray-400 mb-2">Show Typing Indicator</label>
+            <label for="typing-indicator" class="block text-sm text-primary mb-2">Show Typing Indicator</label>
             <div class="flex items-center">
               <input
                 id="typing-indicator"
@@ -70,12 +70,12 @@
                 class="w-5 h-5 text-yellow-500 bg-slate-800 rounded focus:ring-yellow-500 focus:ring-2"
                 checked
               />
-              <label for="typing-indicator" class="ml-3 text-gray-300">Display when others are typing</label>
+              <label for="typing-indicator" class="ml-3 text-primary">Display when others are typing</label>
             </div>
           </div>
           <!-- Message Read Receipts -->
           <div class="mb-6">
-            <label for="read-receipts" class="block text-sm text-gray-400 mb-2">Enable Read Receipts</label>
+            <label for="read-receipts" class="block text-sm text-primary mb-2">Enable Read Receipts</label>
             <div class="flex items-center">
               <input
                 id="read-receipts"
@@ -83,12 +83,12 @@
                 class="w-5 h-5 text-yellow-500 bg-slate-800 rounded focus:ring-yellow-500 focus:ring-2"
                 checked
               />
-              <label for="read-receipts" class="ml-3 text-gray-300">Show when messages are read</label>
+              <label for="read-receipts" class="ml-3 text-primary">Show when messages are read</label>
             </div>
           </div>
           <!-- End-to-End Encryption -->
           <div class="mb-6">
-            <label for="encryption" class="block text-sm text-gray-400 mb-2">End-to-End Encryption</label>
+            <label for="encryption" class="block text-sm text-primary mb-2">End-to-End Encryption</label>
             <div class="flex items-center">
               <input
                 id="encryption"
@@ -96,16 +96,16 @@
                 class="w-5 h-5 text-yellow-500 bg-slate-800 rounded focus:ring-yellow-500 focus:ring-2"
                 checked
               />
-              <label for="encryption" class="ml-3 text-gray-300">Enable secure chat encryption</label>
+              <label for="encryption" class="ml-3 text-primary">Enable secure chat encryption</label>
             </div>
           </div>
         </div>
       </div>
   
       <!-- Footer -->
-      <div class="mt-8 text-center text-gray-400">
+      <div class="mt-8 text-center text-primary">
         <p class="text-sm">
-          Need help? <a href="/support" class="text-yellow-500 hover:underline">Contact Support</a>
+          Need help? <a href="/support" class="text-accent hover:underline">Contact Support</a>
         </p>
       </div>
     </div>

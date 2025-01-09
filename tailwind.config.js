@@ -8,8 +8,13 @@ module.exports = {
     transitionDuration: {
       'fast': '150ms',
       'slow': '500ms',
-    },},
-  },
+    },
+    colors: {
+      primary: 'var(--primary-color)',
+      secondary: 'var(--secondary-color)',
+      accent: 'var(--accent-color)', },},
+  
+},
   plugins: [],
 };
 
