@@ -1,4 +1,4 @@
-<section class="bg-primary h-screen" [class.w-16]="isCollapsed" [class.w-64]="!isCollapsed" (click)="toggleSidebar()">
+<section class="bg-primary h-screen" [class.w-16]="isCollapsed" [class.w-52]="!isCollapsed" (click)="toggleSidebar()">
   <div class="bg-black text-white flex flex-col justify-between h-full rounded-r-lg">
     <!-- Top Section: Logo and Menu -->
     <div>
@@ -21,7 +21,7 @@
       </div>
 
       <!-- Menu Items -->
-      <nav class="mt-16 ml-1.5 space-y-6">
+      <nav class="mt-16 ml-1 space-y-6">
         <!-- Dashboard Tab -->
         <a
           routerLink="/dashboard"
