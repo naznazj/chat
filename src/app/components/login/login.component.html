@@ -5,47 +5,6 @@
     <h2 class="text-3xl text-white font-semibold text-center mb-4">Login</h2>
 
     <!-- Logo Selection -->
-    <div class="flex items-center justify-around mb-6">
-      <label class="flex items-center space-x-2 cursor-pointer">
-        <input
-          type="radio"
-          name="adminType"
-          value="IBC"
-          [(ngModel)]="selectedAdmin"
-          (change)="changeTheme('IBC')"
-          class="hidden"
-        />
-        <div class="w-8 h-8 rounded-full bg-green-500"></div>
-        <span class="text-white">IBC</span>
-      </label>
-    
-      <label class="flex items-center space-x-2 cursor-pointer">
-        <input
-          type="radio"
-          name="adminType"
-          value="Jet"
-          [(ngModel)]="selectedAdmin"
-          (change)="changeTheme('Jet')"
-          class="hidden"
-        />
-        <div class="w-8 h-8 rounded-full bg-blue-500"></div>
-        <span class="text-white">Jet</span>
-      </label>
-    
-      <label class="flex items-center space-x-2 cursor-pointer">
-        <input
-          type="radio"
-          name="adminType"
-          value="Gis"
-          [(ngModel)]="selectedAdmin"
-          (change)="changeTheme('Gis')"
-          class="hidden"
-        />
-        <div class="w-8 h-8 rounded-full bg-orange-500"></div>
-        <span class="text-white">Gis</span>
-      </label>
-    </div>
-    
 
     <!-- Error Message -->
     <div *ngIf="errorMessage" class="text-red-600 text-center mb-4">

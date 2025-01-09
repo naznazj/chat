@@ -14,7 +14,7 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   styleUrls: ['./conversations.component.css'],
 })
 export class ConversationComponent implements OnInit {
-  messages: { sender: string; message: string; time: string; type: 'sent' | 'received' }[] = [];
+  messages: { sender: string; message: string; time: string; type: 'sent' | 'received'; ipLocation: string }[] = [];
   newMessage: string = '';
   selectedCategory: string = 'all';  // Default category
 
@@ -24,15 +24,14 @@ export class ConversationComponent implements OnInit {
     // Fetching messages based on the default category
     this.fetchMessagesByCategory();
     
-      const themeColors = localStorage.getItem('themeColors');
-      if (themeColors) {
-        const colors = JSON.parse(themeColors);
-        document.documentElement.style.setProperty('--primary-color', colors.primary);
-        document.documentElement.style.setProperty('--secondary-color', colors.secondary);
-        document.documentElement.style.setProperty('--accent-color', colors.accent);
-      }
+    const themeColors = localStorage.getItem('themeColors');
+    if (themeColors) {
+      const colors = JSON.parse(themeColors);
+      document.documentElement.style.setProperty('--primary-color', colors.primary);
+      document.documentElement.style.setProperty('--secondary-color', colors.secondary);
+      document.documentElement.style.setProperty('--accent-color', colors.accent);
     }
-  
+  }
 
   // Method to fetch messages for the selected category
   fetchMessagesByCategory(): void {
@@ -53,5 +52,27 @@ export class ConversationComponent implements OnInit {
       this.newMessage = '';  // Clear the input field
     }
   }
-}
 
+  // Method to edit a message
+  editMessage(index: number): void {
+    const newMessage = prompt('Edit message:', this.messages[index].message);
+    if (newMessage !== null) {
+      this.chatService.editMessage(index, newMessage, this.selectedCategory);
+      this.fetchMessagesByCategory();  // Refresh the displayed messages
+    }
+  }
+
+  // Method to delete a message
+  deleteMessage(index: number): void {
+    if (confirm('Are you sure you want to delete this message?')) {
+      this.chatService.deleteMessage(index, this.selectedCategory);
+      this.fetchMessagesByCategory();  // Refresh the displayed messages
+    }
+  }
+
+  // Method to view message details
+  viewDetails(index: number): void {
+    const message = this.messages[index];
+    alert(`Message details:\nSender: ${message.sender}\nTime: ${message.time}\nMessage: ${message.message}\nLocation: ${message.ipLocation}`);
+  }
+}

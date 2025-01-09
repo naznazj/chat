@@ -14,7 +14,6 @@ export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
   errorMessage: string = '';
-  selectedAdmin: string = 'IBC'; // Default to IBC
 
   // Hardcoded credentials
   private credentials: { [key: string]: { username: string; password: string } } = {
@@ -22,12 +21,12 @@ export class LoginComponent implements OnInit {
     Jet: { username: 'Jetadmin', password: 'Jetadmin' },
     Gis: { username: 'Gisadmin', password: 'Gisadmin' },
   };
+
   private colorSchemes: { [key: string]: { primary: string; secondary: string; accent: string } } = {
     IBC: { primary: '#000000', secondary: '#FFFFFF', accent: '#FF0305' },
     Jet: { primary: '#000000', secondary: '#FFFFFF', accent: '#FC9802' },
     Gis: { primary: '#1e1e1e', secondary: '#adb4b7', accent: '#ffc641' },
   };
-  
 
   constructor(private router: Router) {}
 
@@ -39,53 +38,33 @@ export class LoginComponent implements OnInit {
   }
 
   login(): void {
-    const adminType = this.selectedAdmin; // Selected company
-    const user = this.credentials[adminType]; // Credentials for the selected company
-  
-    if (!user) {
-      this.errorMessage = `The selected company "${adminType}" does not exist.`; // Catch-all for invalid admin types
-      return;
-    }
-  
-    // Convert username and password to lowercase for case-insensitive comparison
     const enteredUsername = this.username.trim().toLowerCase();
     const enteredPassword = this.password.trim().toLowerCase();
-    const storedUsername = user.username.toLowerCase();
-    const storedPassword = user.password.toLowerCase();
-  
-    if (enteredUsername === storedUsername && enteredPassword === storedPassword) {
-      // Successful login
-      localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('adminType', adminType);
-      localStorage.setItem('themeColors', JSON.stringify(this.colorSchemes[adminType]));
-  
-      // Apply theme colors
-      const themeColors = this.colorSchemes[adminType];
-      document.documentElement.style.setProperty('--primary-color', themeColors.primary);
-      document.documentElement.style.setProperty('--secondary-color', themeColors.secondary);
-      document.documentElement.style.setProperty('--accent-color', themeColors.accent);
-  
-      this.router.navigate(['/dashboard']);
-    } else {
-      // Provide detailed error message
-      if (enteredUsername !== storedUsername) {
-        this.errorMessage = `The username "${this.username}" is not registered for the company "${adminType}".`;
-      } else if (enteredPassword !== storedPassword) {
-        this.errorMessage = `The password you entered is incorrect for the company "${adminType}".`;
-      } else {
-        this.errorMessage = 'Invalid username or password. Please try again.';
+
+    // Check if the entered credentials match any of the available companies
+    for (const adminType in this.credentials) {
+      const user = this.credentials[adminType];
+      const storedUsername = user.username.toLowerCase();
+      const storedPassword = user.password.toLowerCase();
+
+      if (enteredUsername === storedUsername && enteredPassword === storedPassword) {
+        // Successful login
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('adminType', adminType);
+        localStorage.setItem('themeColors', JSON.stringify(this.colorSchemes[adminType]));
+
+        // Apply theme colors
+        const themeColors = this.colorSchemes[adminType];
+        document.documentElement.style.setProperty('--primary-color', themeColors.primary);
+        document.documentElement.style.setProperty('--secondary-color', themeColors.secondary);
+        document.documentElement.style.setProperty('--accent-color', themeColors.accent);
+
+        this.router.navigate(['/dashboard']);
+        return;
       }
     }
-  }
-  
-  
-  
-  // Change theme based on admin type
-  changeTheme(adminType: string): void {
-    this.selectedAdmin = adminType;
-    const themeColors = this.colorSchemes[adminType];
-    document.documentElement.style.setProperty('--primary-color', themeColors.primary);
-    document.documentElement.style.setProperty('--secondary-color', themeColors.secondary);
-    document.documentElement.style.setProperty('--accent-color', themeColors.accent);
+
+    // If no match is found, display an error
+    this.errorMessage = 'Invalid username or password. Please try again.';
   }
 }
