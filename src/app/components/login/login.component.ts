@@ -47,7 +47,13 @@ export class LoginComponent implements OnInit {
       return;
     }
   
-    if (this.username === user.username && this.password === user.password) {
+    // Convert username and password to lowercase for case-insensitive comparison
+    const enteredUsername = this.username.trim().toLowerCase();
+    const enteredPassword = this.password.trim().toLowerCase();
+    const storedUsername = user.username.toLowerCase();
+    const storedPassword = user.password.toLowerCase();
+  
+    if (enteredUsername === storedUsername && enteredPassword === storedPassword) {
       // Successful login
       localStorage.setItem('isLoggedIn', 'true');
       localStorage.setItem('adminType', adminType);
@@ -62,15 +68,16 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['/dashboard']);
     } else {
       // Provide detailed error message
-      if (this.username !== user.username) {
+      if (enteredUsername !== storedUsername) {
         this.errorMessage = `The username "${this.username}" is not registered for the company "${adminType}".`;
-      } else if (this.password !== user.password) {
+      } else if (enteredPassword !== storedPassword) {
         this.errorMessage = `The password you entered is incorrect for the company "${adminType}".`;
       } else {
         this.errorMessage = 'Invalid username or password. Please try again.';
       }
     }
   }
+  
   
   
   // Change theme based on admin type
