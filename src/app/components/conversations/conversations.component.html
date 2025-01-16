@@ -15,12 +15,12 @@
       </div>
 
       <!-- Categories -->
-      <ul class="flex justify-around items-center">
+      <ul class="w-56 flex justify-between items-center">
         <li
           *ngFor="let category of ['all', 'assigned']"
           (click)="changeCategory(category)"
           [class.bg-red-300]="selectedCategory === category"
-          class="cursor-pointer ring-1 ring-accent text-primary py-2 px-3 rounded-lg hover:bg-accent transition duration-200 ease-in-out"
+          class="cursor-pointer ring-1 ring-accent  text-center text-primary w-[45%] py-2 px-3 rounded-lg hover:bg-accent transition duration-200 ease-in-out"
         >
           {{ category | titlecase }}
           <span *ngIf="category === 'all'" class="ml-2 text-sm font-semibold text-primary">({{ messages.length }})</span>
@@ -31,12 +31,12 @@
         <input
           type="text"
           class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
-          placeholder="Search contacts..."
+          placeholder="&#x1F50E; Search contacts..."
         />
       </div>
 
       <!-- Conversations List -->
-      <ul class="space-y-3 overflow-y-auto overflow-x-hidden h-[40vh]">
+      <ul class="space-y-3 overflow-y-auto  overflow-x-hidden h-[40vh]">
         <li
           *ngFor="let message of messages"
           (click)="selectedChat = message"
