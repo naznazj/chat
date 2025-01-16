@@ -20,6 +20,8 @@ export class ConversationComponent implements OnInit {
   selectedChat: { sender: string; message: string; time: string;  type: 'sent' | 'received'; priority?: boolean; status?: 'open' | 'pending' | 'closed'; ipLocation: string } | null = null;
   showOptions: boolean = false;
   loading: boolean = false;  // To track loading state
+  composeModal: boolean = false;
+  attachmentModal: boolean = false;
 
   constructor(private chatService: ChatService) {}
 
@@ -102,6 +104,22 @@ export class ConversationComponent implements OnInit {
   toggleOptions(): void {
     this.showOptions = !this.showOptions;
   }
+  showComposeModal(){
+    this.composeModal = !this.composeModal;
+  }
+  closeComposeModal(){
+    this.composeModal = false;
+  }
+  sendComposeMessage(){
+    alert('Message sent')
+  }
+  sendAttachment(){
+    this.attachmentModal = !this.attachmentModal;
+  }
+  uploadFiles(){
+    alert('Files uploaded')
+  }
+
 
 
 }
