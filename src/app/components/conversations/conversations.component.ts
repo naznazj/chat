@@ -14,16 +14,17 @@ import { SidebarComponent } from '../sidebar/sidebar.component';
   styleUrls: ['./conversations.component.css'],
 })
 export class ConversationComponent implements OnInit {
-  messages: { sender: string; message: string; time: string; type: 'sent' | 'received'; ipLocation: string }[] = [];
+  messages: { sender: string; message: string; time: string; type: 'sent' | 'received'; priority?: boolean; status?: 'open' | 'pending' | 'closed'; ipLocation: string }[] = [];
   newMessage: string = '';
   selectedCategory: string = 'all';  // Default category
+  selectedChat: { sender: string; message: string; time: string;  type: 'sent' | 'received'; priority?: boolean; status?: 'open' | 'pending' | 'closed'; ipLocation: string } | null = null;
+  showOptions: boolean = false;
+  loading: boolean = false;  // To track loading state
 
   constructor(private chatService: ChatService) {}
 
   ngOnInit(): void {
-    // Fetching messages based on the default category
     this.fetchMessagesByCategory();
-    
     const themeColors = localStorage.getItem('themeColors');
     if (themeColors) {
       const colors = JSON.parse(themeColors);
@@ -34,46 +35,74 @@ export class ConversationComponent implements OnInit {
     }
   }
 
-  // Method to fetch messages for the selected category
   fetchMessagesByCategory(): void {
+    this.loading = true;
     this.messages = this.chatService.getMessagesByType(this.selectedCategory);
+    if (this.messages.length > 0) {
+      this.selectedChat = { 
+        sender: this.messages[0].sender, 
+        message: this.messages[0].message, 
+        time: this.messages[0].time, 
+        priority: this.messages[0].priority, 
+        status: this.messages[0].status, 
+        ipLocation: this.messages[0].ipLocation ,
+        type: this.messages[0].type
+      }; // Show the first message as selected
+    }
+    this.loading = false;
   }
 
-  // Method to change the category
   changeCategory(category: string): void {
     this.selectedCategory = category;
     this.fetchMessagesByCategory();
   }
 
-  // Method to send a message
   sendMessage(): void {
     if (this.newMessage.trim()) {
       this.chatService.sendMessage(this.newMessage, this.selectedCategory);
-      this.fetchMessagesByCategory();  // Refresh the displayed messages
+      this.fetchMessagesByCategory();
       this.newMessage = '';  // Clear the input field
     }
   }
 
-  // Method to edit a message
   editMessage(index: number): void {
     const newMessage = prompt('Edit message:', this.messages[index].message);
     if (newMessage !== null) {
       this.chatService.editMessage(index, newMessage, this.selectedCategory);
-      this.fetchMessagesByCategory();  // Refresh the displayed messages
+      this.fetchMessagesByCategory();
     }
   }
 
-  // Method to delete a message
-  deleteMessage(index: number): void {
-    if (confirm('Are you sure you want to delete this message?')) {
-      this.chatService.deleteMessage(index, this.selectedCategory);
-      this.fetchMessagesByCategory();  // Refresh the displayed messages
-    }
-  }
 
-  // Method to view message details
+
   viewDetails(index: number): void {
     const message = this.messages[index];
     alert(`Message details:\nSender: ${message.sender}\nTime: ${message.time}\nMessage: ${message.message}\nLocation: ${message.ipLocation}`);
   }
+
+  getLatestMessageTime(category: string): string {
+    return this.chatService.getLatestTime(category);
+  }
+
+  // New function to handle when a user clicks a message
+  selectMessage(message: { sender: string; message: string; time: string; type: 'sent' | 'received'; priority?: boolean; status?: 'open' | 'pending' | 'closed'; ipLocation: string }) {
+    this.selectedChat = message;
+  }
+  addNotes(){
+    alert('Notes added')
+  }
+  viewTranscript(){
+    alert('Transcript viewed')
+  }
+  deleteMessage(){
+    alert('Message deleted')
+  }
+ 
+
+  toggleOptions(): void {
+    this.showOptions = !this.showOptions;
+  }
+
+
 }
+
