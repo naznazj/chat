@@ -24,12 +24,12 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              }, "src/assets"
             ],
             "styles": [
               "src/styles.css"
             ],
-            "scripts": "src/assets"
+            "scripts": []
            
           },
           "configurations": {
@@ -83,12 +83,12 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              }
+              }, "src/assets"
             ],
             "styles": [
               "src/styles.css"
             ],
-            "scripts": "src/assets"
+            "scripts": []
           }
         }
       }
