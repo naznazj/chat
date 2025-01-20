@@ -12,6 +12,8 @@ bootstrapApplication(AppComponent, {
   ],
 })
   .catch((err) => console.error(err));
+  // Ensure DOMContentLoaded only applies this logic when the widget is embedded
+
 
 // Ensure DOMContentLoaded only applies this logic when the widget is embedded
 document.addEventListener('DOMContentLoaded', () => {
