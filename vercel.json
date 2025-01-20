@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/dist/:path*",
+      "source": "/:all*(js|css|html)",
       "headers": [
         { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" },
         { "key": "Access-Control-Allow-Origin", "value": "*" },
