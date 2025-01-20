@@ -1,32 +1,24 @@
-import { createCustomElement } from '@angular/elements';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { ChatWidgetComponent } from './app/chat-widget/chat-widget.component';
+import { AppComponent } from './app/app.component';
+import { provideRouter } from '@angular/router';
+import { routes } from './app/app.routes'; 
+import { provideHttpClient } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'; // Include HttpClient
 
-bootstrapApplication(ChatWidgetComponent)
-  .then(appRef => {
-    // Create a custom element from the ChatWidgetComponent
-    const injector = appRef.injector;
-    const chatWidgetElement = createCustomElement(ChatWidgetComponent, { injector });
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(routes), // Register your routes here
+    provideHttpClient(), provideAnimationsAsync(),       // Register HttpClient
+  ],
+})
+  .catch((err) => console.error(err));
 
-    // Register the custom element with the browser
-    customElements.define('app-chat-widget', chatWidgetElement);
-
-    // Wait for the DOM to be fully loaded before embedding the chat widget
-    document.addEventListener('DOMContentLoaded', () => {
-      const containerId = 'chat-widget-container';
-
-      // Prevent duplicate embedding of the widget
-      if (!document.getElementById(containerId)) {
-        const chatContainer = document.createElement('div');
-        chatContainer.id = containerId;
-        document.body.appendChild(chatContainer);
-
-        // Create and append the chat widget element
-        const chatWidget = document.createElement('app-chat-widget');
-        chatContainer.appendChild(chatWidget);
-      }
-    });
-  })
-  .catch(err => {
-    console.error('Error bootstrapping the application:', err);
-  });
+// Ensure DOMContentLoaded only applies this logic when the widget is embedded
+document.addEventListener('DOMContentLoaded', () => {
+  // Check if the chat widget container already exists to avoid duplication
+  if (!document.getElementById('chat-widget-container')) {
+    const chatContainer = document.createElement('div');
+    chatContainer.id = 'chat-widget-container';
+    document.body.appendChild(chatContainer);
+  }
+});
