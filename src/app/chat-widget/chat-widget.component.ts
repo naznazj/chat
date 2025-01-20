@@ -23,6 +23,7 @@ export class ChatWidgetComponent implements OnInit {
   ngOnInit() {
     // Load the external chat widget script dynamically on component init
     this.loadChatWidget();
+   console.log('Chat Widget loaded');
   }
 
   toggleChat() {
