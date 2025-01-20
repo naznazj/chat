@@ -1,7 +1,7 @@
 
 {
   "rewrites": [
-    { "source": "/main.js", "destination": "/dist/main.js" }
+    { "source": "/main.js", "destination": "/dist/frontend/browser/main.js" }
   ],
   "headers": [
     {
@@ -10,7 +10,8 @@
         { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" },
         { "key": "Access-Control-Allow-Origin", "value": "*" },
         { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+        { "key": "Access-Control-Allow-Headers", "value": "Content-Type" },
+        { "key": "Content-Type", "value": "application/javascript" }
       ]
     }
   ]
