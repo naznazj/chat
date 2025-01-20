@@ -10,7 +10,12 @@
     script.setAttribute('crossorigin', "*");
   };
   script.onerror = function(event) {
-    console.error('Failed to load chat widget:', event);
+    console.error('Failed to load chat widget:');
+    console.error(event);  // Logs the entire error object
+    console.error('Error Message:', event.message || 'No message provided');  // Safely logging message
+    console.error('File Name:', event.filename || 'No filename provided');  // Safely logging filename
+    console.error('Line Number:', event.lineno || 'No line number provided');  // Safely logging line number
+    console.error('Error Object:', event.error || 'No error object provided');
   };
   document.head.appendChild(script);
 })();
