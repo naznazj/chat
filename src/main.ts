@@ -1,24 +1,27 @@
+import { createCustomElement } from '@angular/elements';
 import { bootstrapApplication } from '@angular/platform-browser';
-import { AppComponent } from './app/app.component';
-import { provideRouter } from '@angular/router';
-import { routes } from './app/app.routes'; 
-import { provideHttpClient } from '@angular/common/http';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'; // Include HttpClient
+import { ChatWidgetComponent } from './app/chat-widget/chat-widget.component';
 
-bootstrapApplication(AppComponent, {
-  providers: [
-    provideRouter(routes), // Register your routes here
-    provideHttpClient(), provideAnimationsAsync(),       // Register HttpClient
-  ],
-})
-  .catch((err) => console.error(err));
+bootstrapApplication(ChatWidgetComponent).then(appRef => {
+  // Create a custom element from the standalone ChatWidgetComponent
+  const injector = appRef.injector;
+  const chatWidgetElement = createCustomElement(ChatWidgetComponent, { injector });
 
-// Ensure DOMContentLoaded only applies this logic when the widget is embedded
-document.addEventListener('DOMContentLoaded', () => {
-  // Check if the chat widget container already exists to avoid duplication
-  if (!document.getElementById('chat-widget-container')) {
-    const chatContainer = document.createElement('div');
-    chatContainer.id = 'chat-widget-container';
-    document.body.appendChild(chatContainer);
-  }
+  // Register the custom element with the browser
+  customElements.define('app-chat-widget', chatWidgetElement);
+
+  // Optional: Ensure the widget is embedded only once
+  document.addEventListener('DOMContentLoaded', () => {
+    if (!document.getElementById('chat-widget-container')) {
+      const chatContainer = document.createElement('div');
+      chatContainer.id = 'chat-widget-container';
+      document.body.appendChild(chatContainer);
+
+      // Create and attach the custom chat widget element
+      const chatWidget = document.createElement('app-chat-widget');
+      chatContainer.appendChild(chatWidget);
+    }
+  });
+}).catch(err => {
+  console.error('Error bootstrapping the application:', err);
 });
