@@ -1,4 +1,8 @@
+
 {
+  "rewrites": [
+    { "source": "/main.js", "destination": "/dist/main.js" }
+  ],
   "headers": [
     {
       "source": "/:all*(js|css|html)",
