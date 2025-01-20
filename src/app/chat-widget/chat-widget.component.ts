@@ -21,8 +21,7 @@ export class ChatWidgetComponent implements OnInit {
   @ViewChild('messages') messagesContainer!: ElementRef;
 
   ngOnInit() {
-    // Load the external chat widget script dynamically on component init
-    this.loadChatWidget();
+    // Load the external chat widget script dynamically on component initialization
    console.log('Chat Widget loaded');
   }
 
@@ -81,21 +80,5 @@ handleKeyboardEvent(event: KeyboardEvent) {
     }
   }
 
-  private loadChatWidget() {
-    const widgetScript = document.createElement('script');
-    widgetScript.src = 'https://chat-75vz.vercel.app/chat-widget.js'; // Replace with your hosted URL
-    widgetScript.async = true;
 
-    // Error handling for failed script load
-    widgetScript.onerror = (error) => {
-      console.error('Failed to load chat widget:', error);
-    };
-
-    // Append the script tag to the document body
-    document.body.appendChild(widgetScript);
-
-    widgetScript.onload = () => {
-      console.log('Chat widget loaded successfully');
-    };
-  }
 }
