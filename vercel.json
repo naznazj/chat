@@ -1,7 +1,7 @@
 {
     "headers": [
       {
-        "source": "/assets/chat-widget-loader.js",
+        "source": "/assets/:path*",
         "headers": [
           { "key": "Access-Control-Allow-Origin", "value": "*" },
           { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" },
