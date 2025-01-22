@@ -1,8 +1,5 @@
 
 {
-  "rewrites": [
-    { "source": "/main.js", "destination": "/dist/frontend/browser/main.js" }
-  ],
   "headers": [
     {
       "source": "/:all*(js|css|html)",
