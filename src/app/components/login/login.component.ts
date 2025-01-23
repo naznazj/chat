@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     const loggedIn = localStorage.getItem('isLoggedIn');
-    if (loggedIn === 'true') {
+    if (loggedIn === 'true' && localStorage.getItem('adminType')) {
       this.router.navigate(['/dashboard']);
     }
   }
