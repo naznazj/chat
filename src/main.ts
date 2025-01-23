@@ -8,11 +8,11 @@ import { ChatWidgetComponent } from './app/chat-widget/chat-widget.component';
 
 bootstrapApplication(ChatWidgetComponent, {
   providers: [
-    provideRouter(routes), // Register your routes here
-    provideHttpClient(), provideAnimationsAsync(),       // Register HttpClient
+    provideRouter(routes),
+    provideHttpClient(),
+    provideAnimationsAsync(),
   ],
-})
-  .catch((err) => console.error(err));
+}).catch((err) => console.error(err));
   // Ensure DOMContentLoaded only applies this logic when the widget is embedded
 
 
