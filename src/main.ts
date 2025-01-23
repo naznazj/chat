@@ -4,8 +4,9 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app/app.routes'; 
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'; // Include HttpClient
+import { ChatWidgetComponent } from './app/chat-widget/chat-widget.component';
 
-bootstrapApplication(AppComponent, {
+bootstrapApplication(ChatWidgetComponent, {
   providers: [
     provideRouter(routes), // Register your routes here
     provideHttpClient(), provideAnimationsAsync(),       // Register HttpClient
