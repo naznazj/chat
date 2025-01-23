@@ -6,6 +6,14 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'; // Include HttpClient
 import { ChatWidgetComponent } from './app/chat-widget/chat-widget.component';
 
+bootstrapApplication(ChatWidgetComponent, {
+  providers: [
+    provideRouter(routes),
+    provideHttpClient(),
+    provideAnimationsAsync(),
+  ],
+}).catch((err) => console.error(err));
+  // Ensure DOMContentLoaded only applies this logic when the widget is embedded
 
 
 // Ensure DOMContentLoaded only applies this logic when the widget is embedded
@@ -17,11 +25,3 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.appendChild(chatContainer);
   }
 });
-
-bootstrapApplication(ChatWidgetComponent, {
-  providers: [
-    provideRouter(routes),
-    provideHttpClient(),
-    provideAnimationsAsync(),
-  ],
-}).catch((err) => console.error('Bootstrap Error:', err));
