@@ -6,13 +6,13 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async'; // Include HttpClient
 import { ChatWidgetComponent } from './app/chat-widget/chat-widget.component';
 
-bootstrapApplication(ChatWidgetComponent, {
+bootstrapApplication(AppComponent,{
   providers: [
-    provideRouter(routes),
-    provideHttpClient(),
-    provideAnimationsAsync(),
+    provideRouter(routes), // Register your routes here
+    provideHttpClient(), provideAnimationsAsync(),       // Register HttpClient
   ],
-}).catch((err) => console.error(err));
+})
+  .catch((err) => console.error(err));
   // Ensure DOMContentLoaded only applies this logic when the widget is embedded
 
 
