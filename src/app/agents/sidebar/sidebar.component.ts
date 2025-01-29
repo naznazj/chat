@@ -1,0 +1,51 @@
+import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
+import { Event, Router, RouterModule } from '@angular/router';
+
+@Component({
+  selector: 'app-a-sidebar',
+  standalone: true,
+  imports: [CommonModule, RouterModule],
+  templateUrl: './sidebar.component.html',
+  styleUrl: './sidebar.component.css'
+})
+export class aSidebarComponent {
+  isCollapsed: boolean;
+  
+  constructor(private router: Router) {
+    // Retrieve the saved sidebar state from local storage on initialization
+    const savedState = localStorage.getItem('sidebarState');
+    this.isCollapsed = savedState ? JSON.parse(savedState) : false;
+  }
+
+  ngOnInit(): void {
+    // Optionally, you can listen to route changes to handle other side effects.
+    this.router.events.subscribe(() => {
+      // Keep the sidebar state intact across route changes
+    });
+   
+      const themeColors = localStorage.getItem('themeColors');
+      if (themeColors) {
+        const colors = JSON.parse(themeColors);
+        document.documentElement.style.setProperty('--primary-color', colors.primary);
+        document.documentElement.style.setProperty('--secondary-color', colors.secondary);
+        document.documentElement.style.setProperty('--accent-color', colors.accent);
+      }
+    
+  }
+
+logout(): void {
+  // Clear the login state from localStorage
+  localStorage.removeItem('isLoggedIn');
+  // Redirect to login page
+  this.router.navigate(['/login']);
+}
+
+  toggleSidebar(): void {
+    this.isCollapsed = !this.isCollapsed;
+    // Save the updated state to local storage
+    localStorage.setItem('sidebarState', JSON.stringify(this.isCollapsed));
+  }
+
+}
+

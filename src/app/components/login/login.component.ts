@@ -14,16 +14,20 @@ export class LoginComponent implements OnInit {
   username: string = '';
   password: string = '';
   errorMessage: string = '';
-  
 
-  // Hardcoded credentials
-  private credentials: { [key: string]: { username: string; password: string } } = {
-    IBC: { username: 'IBCadmin', password: 'IBCadmin' },
-    Jet: { username: 'Jetadmin', password: 'Jetadmin' },
-    Gis: { username: 'Gisadmin', password: 'Gisadmin' },
+  // User credentials with userTypes (Admin or Agent)
+  private credentials: { [key: string]: { username: string; password: string; userType: string } } = {
+    IBCAdmin: { username: 'IBCadmin', password: 'IBCadmin', userType: 'Admin' },
+    IBCAgent: { username: 'IBCAgent', password: 'IBCAgent', userType: 'Agent' },
+    
+    JetAdmin: { username: 'Jetadmin', password: 'Jetadmin', userType: 'Admin' },
+    JetAgent: { username: 'JetAgent', password: 'JetAgent', userType: 'Agent' },
+    
+    GisAdmin: { username: 'Gisadmin', password: 'Gisadmin', userType: 'Admin' },
+    GisAgent: { username: 'GisAgent', password: 'GisAgent', userType: 'Agent' },
   };
 
-  private colorSchemes: { [key: string]: { primary: string; secondary: string; accent: string; whites: string} } = {
+  private colorSchemes: { [key: string]: { primary: string; secondary: string; accent: string; whites: string } } = {
     IBC: { primary: '#000000', secondary: '#FFFFFF', accent: '#FF0305', whites: '#ffffff' },
     Jet: { primary: '#000000', secondary: '#FFFFFF', accent: '#FC9802', whites: '#ffffff' },
     Gis: { primary: '#1e1e1e', secondary: '#adb4b7', accent: '#ffc641', whites: '#ffffff' },
@@ -33,8 +37,14 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     const loggedIn = localStorage.getItem('isLoggedIn');
-    if (loggedIn === 'true' && localStorage.getItem('adminType')) {
-      this.router.navigate(['/dashboard']);
+    const userType = localStorage.getItem('userType');
+
+    if (loggedIn === 'true') {
+      if (userType === 'Admin') {
+        this.router.navigate(['/dashboard']);
+      } else if (userType === 'Agent') {
+        this.router.navigate(['/adashboard']);
+      }
     }
   }
 
@@ -42,31 +52,42 @@ export class LoginComponent implements OnInit {
     const enteredUsername = this.username.trim().toLowerCase();
     const enteredPassword = this.password.trim().toLowerCase();
 
-    // Check if the entered credentials match any of the available companies
-    for (const adminType in this.credentials) {
-      const user = this.credentials[adminType];
+    console.log('Attempting login:', enteredUsername, enteredPassword);
+
+    for (const key in this.credentials) {
+      const user = this.credentials[key];
       const storedUsername = user.username.toLowerCase();
       const storedPassword = user.password.toLowerCase();
 
       if (enteredUsername === storedUsername && enteredPassword === storedPassword) {
-        // Successful login
-        localStorage.setItem('isLoggedIn', 'true');
-        localStorage.setItem('adminType', adminType);
-        localStorage.setItem('themeColors', JSON.stringify(this.colorSchemes[adminType]));
+        console.log('User authenticated:', key, user.userType);
 
-        // Apply theme colors
-        const themeColors = this.colorSchemes[adminType];
+        // Store login details
+        localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('adminType', key.includes('IBC') ? 'IBC' : key.includes('Jet') ? 'Jet' : 'Gis');
+        localStorage.setItem('userType', user.userType);
+
+        // Apply Theme Colors
+        const company = key.includes('IBC') ? 'IBC' : key.includes('Jet') ? 'Jet' : 'Gis';
+        const themeColors = this.colorSchemes[company];
+        localStorage.setItem('themeColors', JSON.stringify(themeColors));
+
         document.documentElement.style.setProperty('--primary-color', themeColors.primary);
         document.documentElement.style.setProperty('--secondary-color', themeColors.secondary);
-        document.documentElement.style.setProperty('--accent-color', themeColors.accent)
+        document.documentElement.style.setProperty('--accent-color', themeColors.accent);
         document.documentElement.style.setProperty('--whites-color', themeColors.whites);
 
-        this.router.navigate(['/dashboard']);
+        // Redirect based on userType
+        if (user.userType === 'Admin') {
+          this.router.navigate(['/dashboard']);
+        } else {
+          this.router.navigate(['/adashboard']);
+        }
         return;
       }
     }
 
-    // If no match is found, display an error
+    console.log('Login failed');
     this.errorMessage = 'Invalid username or password. Please try again.';
   }
 }

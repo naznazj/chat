@@ -13,6 +13,7 @@ import { ChatComponent } from './agents/chat/chat.component';
 import { AgentDashboardComponent } from './agents/agent-dashboard/agent-dashboard.component';
 import { AgentNotificationsComponent } from './agents/agent-notifications/agent-notifications.component';
 import { AgentSettingsComponent } from './agents/agent-settings/agent-settings.component';
+import { AgentContactsComponent } from './agents/agent-contacts/agent-contacts.component';
 
 export const routes: Routes = [
     { path: '', component: DashboardComponent, canActivate: [authGuard] },
@@ -28,5 +29,6 @@ export const routes: Routes = [
     { path: 'adashboard', component: AgentDashboardComponent },
     { path: 'anotifications', component: AgentNotificationsComponent  },
     { path: 'asettings', component: AgentSettingsComponent},
+    { path: 'acontacts', component: AgentContactsComponent},
     { path: '**', redirectTo: '' }
 ];
